@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "274988696239",
+    "project_id": "news-app-aed4e",
+    "storage_bucket": "news-app-aed4e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:274988696239:android:8c34b6b9b6bd428e934a5a",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxwqXjKqj2hPcFtuPbsOBgl6NmO9K1a94"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
