@@ -4,19 +4,16 @@ import android.content.Intent
 import android.net.Uri
 import android.util.Log
 import android.view.ViewGroup
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ShareCompat
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.example.myapplication.FavouriteActivity
 import com.example.myapplication.R
-import com.example.myapplication.databinding.ActivityFavourtiteBinding
 import com.example.myapplication.databinding.FavouriteListItemBinding
-import com.example.myapplication.news_model.FavouriteModel
+import com.example.myapplication.models.FavouriteModel
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
 

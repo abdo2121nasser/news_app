@@ -1,4 +1,4 @@
-package com.example.myapplication.news_model
+package com.example.myapplication.models
 
 data class NewsModel(
     val totalResults:Int,

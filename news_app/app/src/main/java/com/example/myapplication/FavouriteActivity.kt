@@ -6,8 +6,8 @@ import android.util.Log
 import androidx.core.view.isVisible
 import com.example.myapplication.adaptors.FavouriteAdaptor
 import com.example.myapplication.databinding.ActivityFavourtiteBinding
-import com.example.myapplication.news_model.FavouriteArticleModel
-import com.example.myapplication.news_model.FavouriteModel
+import com.example.myapplication.models.FavouriteArticleModel
+import com.example.myapplication.models.FavouriteModel
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
 

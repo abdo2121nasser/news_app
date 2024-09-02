@@ -1,6 +1,6 @@
 package com.example.myapplication.call_interfaces
 
-import com.example.myapplication.news_model.NewsModel
+import com.example.myapplication.models.NewsModel
 import retrofit2.Call
 import retrofit2.http.GET
 

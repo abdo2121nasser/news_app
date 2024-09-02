@@ -11,8 +11,7 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.example.myapplication.MainActivity
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ArticleListItemBinding
-import com.example.myapplication.news_model.ArticleModel
-import com.example.myapplication.news_model.NewsModel
+import com.example.myapplication.models.NewsModel
 
 class NewsAdaptor(val activity: MainActivity, val model:NewsModel) :
     Adapter<NewsAdaptor.ItemHolder>() {

@@ -1,14 +1,12 @@
 package com.example.myapplication
 
-import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.example.myapplication.adaptors.NewsAdaptor
 import com.example.myapplication.call_interfaces.NewsCallable
 import com.example.myapplication.databinding.ActivityMainBinding
-import com.example.myapplication.news_model.ArticleModel
-import com.example.myapplication.news_model.NewsModel
+import com.example.myapplication.models.NewsModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -39,7 +37,7 @@ class MainActivity : AppCompatActivity() {
             .build().create(NewsCallable::class.java)
         retrofit.getArticles().enqueue(object :Callback<NewsModel>{
             override fun onResponse(p0: Call<NewsModel>, response: Response<NewsModel>) {
-           val news: NewsModel? =response.body()
+           val news: NewsModel? = response.body()
                    showList(news!!, binding)
                 binding.progress.isVisible=false
                 binding.refresher.isRefreshing=false
