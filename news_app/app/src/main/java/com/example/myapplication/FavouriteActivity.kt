@@ -6,7 +6,6 @@ import android.util.Log
 import androidx.core.view.isVisible
 import com.example.myapplication.adaptors.FavouriteAdaptor
 import com.example.myapplication.databinding.ActivityFavourtiteBinding
-import com.example.myapplication.databinding.ActivityMainBinding
 import com.example.myapplication.news_model.FavouriteArticleModel
 import com.example.myapplication.news_model.FavouriteModel
 import com.google.firebase.Firebase
@@ -23,9 +22,9 @@ class FavouriteActivity : AppCompatActivity() {
         }
     }
     fun getData(binding: ActivityFavourtiteBinding) {
-   val docId:String?=intent.getStringExtra("docId")
-        val firestore = Firebase.firestore
-        firestore.collection("users").document(docId!!).collection("favourites")
+   val docId:String=getSharedPreferences("user_secrete_data", MODE_PRIVATE).getString("user_docId","").toString()
+        val fireStore = Firebase.firestore
+        fireStore.collection("users").document(docId).collection("favourites")
             .get().addOnSuccessListener {
 
                 var articles = ArrayList<FavouriteArticleModel>()
