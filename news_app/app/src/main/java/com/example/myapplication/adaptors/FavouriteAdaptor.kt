@@ -31,6 +31,7 @@ class FavouriteAdaptor(val activity: FavouriteActivity, val model: FavouriteMode
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
         holder.binding.title.text = model.articles[position].title
+        Log.d("tag", model.articles[position].imageUrl.toString())
         Glide.with(holder.binding.image.context).load(model.articles[position].imageUrl)
             .error(R.drawable.baseline_broken_image_24)
             .transition(DrawableTransitionOptions.withCrossFade(1000))

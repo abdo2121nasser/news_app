@@ -33,7 +33,7 @@ class FavouriteActivity : AppCompatActivity() {
                         FavouriteArticleModel(
                             title = document.getString("title") ?: "",
                             url = document.getString("url") ?: "",
-                            imageUrl = document.getString("urlToImage"),
+                            imageUrl = document.getString("imageUrl"),
                             docId = document.id.toString()
                         )
                     )
