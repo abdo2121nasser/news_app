@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/list_item"
+    android:id="@+id/favourite_item"
     android:layout_width="match_parent"
     android:layout_height="240dp"
     android:layout_margin="8dp"
@@ -51,7 +51,6 @@
             app:layout_constraintTop_toTopOf="@id/title"
 
             />
-
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/share"
             android:layout_width="wrap_content"
@@ -74,7 +73,7 @@
             android:tint="@color/yellow"
             app:layout_constraintEnd_toEndOf="@id/image"
             app:layout_constraintTop_toTopOf="@id/image"
-             />
+            />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

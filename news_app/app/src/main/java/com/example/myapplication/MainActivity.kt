@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
             .build().create(NewsCallable::class.java)
         retrofit.getArticles().enqueue(object :Callback<NewsModel>{
             override fun onResponse(p0: Call<NewsModel>, response: Response<NewsModel>) {
-           val  news: NewsModel? =response.body()
+           val news: NewsModel? =response.body()
                    showList(news!!, binding)
                 binding.progress.isVisible=false
                 binding.refresher.isRefreshing=false
