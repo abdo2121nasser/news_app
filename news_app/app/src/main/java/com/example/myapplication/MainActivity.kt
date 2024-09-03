@@ -1,13 +1,11 @@
 package com.example.myapplication
 
-import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.example.myapplication.adaptors.NewsAdaptor
 import com.example.myapplication.call_interfaces.NewsCallable
 import com.example.myapplication.databinding.ActivityMainBinding
-import com.example.myapplication.news_model.ArticleModel
 import com.example.myapplication.news_model.NewsModel
 import retrofit2.Call
 import retrofit2.Callback
