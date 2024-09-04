@@ -2,10 +2,7 @@ package com.example.myapplication.adaptors
 
 import android.content.Intent
 import android.net.Uri
-import android.util.Log
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ShareCompat
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
@@ -14,9 +11,8 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.example.myapplication.MainActivity
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ArticleListItemBinding
-import com.example.myapplication.models.NewsModel
-import com.google.firebase.Firebase
-import com.google.firebase.firestore.firestore
+import com.example.myapplication.news_model.ArticleModel
+import com.example.myapplication.news_model.NewsModel
 
 class NewsAdaptor(val activity: MainActivity, val model:NewsModel) :
     Adapter<NewsAdaptor.ItemHolder>() {
@@ -28,7 +24,7 @@ class NewsAdaptor(val activity: MainActivity, val model:NewsModel) :
         return ItemHolder(binding)
     }
 
-    override fun getItemCount() = model.totalResults
+    override fun getItemCount() = model.articles.size
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
         holder.binding.title.text = model.articles[position].title
@@ -48,23 +44,6 @@ class NewsAdaptor(val activity: MainActivity, val model:NewsModel) :
             ShareCompat.IntentBuilder(activity).setType("text/plain")
                 .setChooserTitle("share link with:")
                 .setText(model.articles[position].url).startChooser()
-        }
-        holder.binding.favourite.setOnClickListener {
-            val docId: String = activity.getSharedPreferences(
-                "user_secrete_data",
-                AppCompatActivity.MODE_PRIVATE
-            ).getString("user_docId", "").toString()
-
-            val fireStore = Firebase.firestore
-            fireStore.collection("users").document(docId).collection("favourites")
-                .add(model.articles[position])
-                .addOnSuccessListener {
-                    Toast.makeText(activity, "added successfully", Toast.LENGTH_SHORT).show()
-                }.addOnFailureListener {
-                    Toast.makeText(activity, "there was an error", Toast.LENGTH_SHORT).show()
-                    Log.d("favourite",it.toString())
-
-                }
         }
     }
 }
