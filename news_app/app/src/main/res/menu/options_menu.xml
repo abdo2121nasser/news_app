@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/favourites"
+        android:icon="@drawable/ic_star"
+        android:title=""
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/overflowMenu"
+        android:icon="@drawable/ic_vertical_dots"
+        android:iconTint="@color/white"
+        android:title=""
+        app:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/settings"
+                android:icon="@drawable/ic_settings"
+                android:iconTint="@color/white"
+                android:title="Settings"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/logout"
+                android:iconTint="@color/white"
+                android:icon="@drawable/ic_logout"
+                android:title="Logout"
+                app:showAsAction="never" />
+        </menu>
+    </item>
+
+</menu>
