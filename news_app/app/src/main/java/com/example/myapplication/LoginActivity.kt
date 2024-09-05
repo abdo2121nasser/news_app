@@ -45,8 +45,15 @@ class LoginActivity : AppCompatActivity() {
         binding.loginBtn.setOnClickListener {
             val email = binding.emailEt.text.toString()
             val password = binding.passwordEt.text.toString()
-            if (email.isBlank() || password.isBlank())
-                Toast.makeText(this, "Missing Field/s!", Toast.LENGTH_SHORT).show()
+            if (email.isBlank()&& password.isBlank()){
+                binding.emailEt.error= "required!"
+                binding.passwordEt.error= "required!"
+            }
+            else if (email.isBlank() )
+                binding.emailEt.error= "required!"
+            else if(password.isBlank())
+            binding.passwordEt.error= "required!"
+
             else {
                 login(email, password)
             }

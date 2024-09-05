@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:id="@+id/start_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Join us!"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/welcome_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Sign up to get started"
+        android:textSize="26sp"
+        app:layout_constraintTop_toTopOf="@id/start_tv"
+        app:layout_constraintBottom_toBottomOf="@id/start_tv"
+        app:layout_constraintStart_toEndOf="@id/start_tv" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@id/start_tv"
+        app:layout_constraintTop_toBottomOf="@id/welcome_tv">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/email_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:maxLines="1" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/textInputEmail"
+        app:layout_constraintTop_toBottomOf="@id/textInputEmail"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+
+            android:inputType="textPassword" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputCPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/textInputPassword"
+        app:layout_constraintTop_toBottomOf="@id/textInputPassword"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/cpassword_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirm Password"
+            android:inputType="textPassword" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/signup_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Sign Up"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@id/textInputPassword"
+        app:layout_constraintStart_toStartOf="@id/textInputPassword"
+        app:layout_constraintTop_toBottomOf="@id/textInputCPassword" />
+
+    <TextView
+        android:id="@+id/noaccount_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already a user?"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@id/signup_btn"
+        app:layout_constraintStart_toStartOf="@id/signup_btn"
+        app:layout_constraintTop_toBottomOf="@id/signup_btn" />
+
+    <TextView
+        android:id="@+id/login_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:clickable="true"
+        android:text="Login"
+        android:textColor="@color/blue"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/noaccount_tv"
+        app:layout_constraintTop_toBottomOf="@id/signup_btn" />
+</androidx.constraintlayout.widget.ConstraintLayout>
