@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingsActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:logo="@drawable/ic_settings"
+        app:title="Settings"
+        app:titleMarginStart="24dp"
+        app:titleTextColor="@color/black" />
+
+    <TextView
+        android:id="@+id/acc_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:text="Account Settings"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/change_email_btn"
+        style="@style/settings_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Change Email"
+        app:icon="@drawable/ic_arrow_forward"
+        app:layout_constraintTop_toBottomOf="@id/acc_tv" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/change_pass_btn"
+        style="@style/settings_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Change Password"
+        app:icon="@drawable/ic_arrow_forward"
+        app:layout_constraintTop_toBottomOf="@id/change_email_btn" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/delete_acc_btn"
+        style="@style/settings_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete Account"
+        app:icon="@drawable/ic_arrow_forward"
+        app:layout_constraintTop_toBottomOf="@id/change_pass_btn" />
+
+    <View
+        android:id="@+id/separator"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="24dp"
+        android:background="#c0c0c0"
+        app:layout_constraintBottom_toTopOf="@id/pref_tv"
+        app:layout_constraintTop_toBottomOf="@id/delete_acc_btn" />
+
+    <TextView
+        android:id="@+id/pref_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:paddingStart="16dp"
+        android:text="Prefrences"
+        app:layout_constraintTop_toBottomOf="@id/separator" />
+
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layoutDirection="rtl"
+        android:paddingHorizontal="16dp"
+        android:text="Custom Sources"
+        app:layout_constraintTop_toBottomOf="@id/pref_tv" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/src_btn"
+        style="@style/settings_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:text="Article Sources"
+        app:icon="@drawable/ic_arrow_forward"
+        app:layout_constraintTop_toBottomOf="@id/checkbox" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/category_btn"
+        style="@style/settings_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Articles Category"
+        app:icon="@drawable/ic_arrow_forward"
+        app:layout_constraintTop_toBottomOf="@id/src_btn" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/country_btn"
+        style="@style/settings_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Country"
+        app:icon="@drawable/ic_arrow_forward"
+        app:layout_constraintTop_toBottomOf="@id/category_btn" />
+
+    <TextView
+        android:id="@+id/article_TV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Articles Max Count"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/country_btn" />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/slider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:stepSize="10"
+        android:value="20"
+        android:valueFrom="20"
+        android:valueTo="100"
+        app:labelBehavior="visible"
+        app:layout_constraintTop_toBottomOf="@id/article_TV" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/reset_btn"
+        style="@style/settings_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="Reset"
+        app:cornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

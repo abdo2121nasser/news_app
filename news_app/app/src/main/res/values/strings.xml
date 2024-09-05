@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="endpoint"><![CDATA[/v2/top-headlines?country=us&apiKey=abeb255c75614ac8a3eb8b01f3bd27ed]]></string>
 </resources>
