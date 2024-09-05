@@ -2,6 +2,7 @@ package com.example.myapplication
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.widget.Toast
 import android.window.OnBackInvokedDispatcher
 import androidx.activity.enableEdgeToEdge
@@ -16,6 +17,9 @@ import com.google.firebase.ktx.Firebase
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
     private lateinit var auth: FirebaseAuth
+    private var temail =""
+    private var tpassword=""
+    private var tcpassword=""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +31,14 @@ class SignUpActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        //support get data after rotation
+        temail = savedInstanceState?.getString("email")?:""
+        binding.emailEt.setText(temail)
+        tpassword = savedInstanceState?.getString("password")?:""
+        binding.passwordEt.setText(tpassword)
+        tcpassword = savedInstanceState?.getString("cpassword")?:""
+        binding.cpasswordEt.setText(tcpassword)
+
         auth = Firebase.auth
         binding.loginTv.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
@@ -72,6 +84,18 @@ class SignUpActivity : AppCompatActivity() {
                 }
             }
 
+    }
+    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
+        super.onSaveInstanceState(outState, outPersistentState)
+        outState.putString("email", temail)
+        outState.putString("password",tpassword)
+        outState.putString("checked",tcpassword)
+    }
+    override fun onPause() {
+        super.onPause()
+        temail=binding.emailEt.text.toString()
+        tpassword =binding.passwordEt.toString()
+        tcpassword= binding.cpasswordEt.toString()
     }
 
 

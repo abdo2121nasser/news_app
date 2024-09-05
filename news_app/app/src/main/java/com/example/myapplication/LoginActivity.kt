@@ -4,6 +4,7 @@ import android.R.attr.password
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -18,6 +19,9 @@ import com.google.firebase.ktx.Firebase
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var auth: FirebaseAuth
+    private var temail =""
+    private var tpassword=""
+    private var tchecked=false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,9 +34,20 @@ class LoginActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        //support get data after rotation
+        temail = savedInstanceState?.getString("email")?:""
+        binding.emailEt.setText(temail)
+        tpassword = savedInstanceState?.getString("password")?:""
+        binding.passwordEt.setText(tpassword)
+        tchecked = savedInstanceState?.getBoolean("checked")?:true
+        binding.checkbox.isChecked=tchecked
+
+        //login automatically
         val sharedPreferences = getSharedPreferences("Login", Context.MODE_PRIVATE)
         val email = sharedPreferences.getString("email", "").toString()
         val password = sharedPreferences.getString("Pass", "").toString()
+
+
         if (email != "" && password != "")
             login(email,password)
         binding.signupTv.setOnClickListener {
@@ -95,12 +110,7 @@ class LoginActivity : AppCompatActivity() {
             editor.putString("Pass", password)
             editor.apply()
         }
-//        else {
-//            editor.putString("email", "")
-//            editor.putString("Pass", "")
-//            editor.apply()
-//
-//        }
+
     }
 
     private fun loadPreferences() {
@@ -108,6 +118,20 @@ class LoginActivity : AppCompatActivity() {
         val email = sharedPreferences.getString("email", null)
         val password = sharedPreferences.getString("Pass", null)
     }
+    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
+        super.onSaveInstanceState(outState, outPersistentState)
+        outState.putString("email", temail)
+        outState.putString("password",tpassword)
+        outState.putBoolean("checked",tchecked)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        temail=binding.emailEt.text.toString()
+        tpassword =binding.passwordEt.toString()
+        tchecked= binding.checkbox.isChecked
+    }
+
 
 
 }
